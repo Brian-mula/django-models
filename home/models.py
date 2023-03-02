@@ -10,3 +10,11 @@ class Blogs(models.Model):
 
     def __str__(self):
         return self.creater
+
+class MenuCategory(models.Model):
+    category_name=models.CharField(max_length=200)
+
+class Menu(models.Model):
+    menu_item=models.CharField(max_length=200)
+    price=models.IntegerField(null=False)
+    category_id=models.ForeignKey(MenuCategory,on_delete=models.PROTECT)
